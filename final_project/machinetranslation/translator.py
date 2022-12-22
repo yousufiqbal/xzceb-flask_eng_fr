@@ -22,11 +22,9 @@ language_translator.set_service_url(url)
 
 def english_to_french(english_text = None):
     """Function for english to french translation.."""
-
     # If no value is provided return None..
-    if (english_text == None):
-      return None
-
+    if english_text in (None, ''):
+        return ''
     # Else translate and return translation
     translation = language_translator.translate(text=english_text, model_id='en-fr').get_result()
     french_text = translation['translations'][0]['translation']
@@ -34,11 +32,9 @@ def english_to_french(english_text = None):
 
 def french_to_english(french_text = None):
     """Function for french to english translation.."""
-    
     # If no value is provided return None..
-    if (french_text == None):
-      return None
-
+    if french_text in (None, ''):
+        return ''
     # Else translate and return translation
     translation = language_translator.translate(text=french_text, model_id='fr-en').get_result()
     english_text = translation['translations'][0]['translation']
